@@ -1,0 +1,4 @@
+Problem: Detect whether a linked list contains ring
+
+Use two cursors to transverse the linked list, one with stepwidth 1, the other with stepwidth 2. 
+They will meet in the end if the linked list contains ring
