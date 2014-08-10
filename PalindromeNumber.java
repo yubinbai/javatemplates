@@ -1,10 +1,8 @@
-package algorithm.basic.palindrome;
-
 /**
  * Test if a number is palindrome
  *
  */
-public class Palindrome {
+public class PalindromeNumber {
 
     public static boolean isPalindrome(int number) {
         // determine if number is a palindrome
@@ -14,7 +12,13 @@ public class Palindrome {
             reverse = reverse * 10 + number % 10;
             number /= 10;
         }
-
         return (original == reverse);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(PalindromeNumber.isPalindrome(0));
+        System.out.println(PalindromeNumber.isPalindrome(121));
+        System.out.println(PalindromeNumber.isPalindrome(1221));
+        System.out.println(PalindromeNumber.isPalindrome(120));
     }
 }
