@@ -47,6 +47,7 @@ public class NextPermutation {
         low = low + 1;
         high = size - 1;
         while (low < high) {
+
             Collections.swap(num, low, high);
             low++;
             high--;
@@ -55,14 +56,57 @@ public class NextPermutation {
         return;
     }
 
+    // get the next permutation in place
+    public static void nextPermutation(int[] num) {
+        int size = num.length;
+        if (size <= 1) return;
+
+        // 1.find the first acending order pair from the bottom
+        int low = size - 2;
+        int high = size - 1;
+        while (num[low] >= num[high]) {
+            if (low == high - 1) {
+                low -= 1;
+                high = size - 1;
+                if (low < 0) break;
+            } else {
+                high -= 1;
+            }
+        }
+
+        // reached end of permutation
+        if (low < 0) {
+            Arrays.sort(num);
+            return;
+        }
+
+        // 2.swap num[lo] with num[hi] if lo >= 0
+        int temp = 0;
+        temp = num[low];
+        num[low] = num[high];
+        num[high] = temp;
+
+        // 3.reverse lo+1 .. end
+        low = low + 1;
+        high = size - 1;
+        while (low < high) {
+            temp = num[low];
+            num[low] = num[high];
+            num[high] = temp;
+            low++;
+            high--;
+        }
+
+        return;
+    }
     public static void main(String[] args) {
-        int[] seq = {1, 2, 2, 3};
+        int[] seq = {1, 2, 2, 3, 4, 5, 6};
         ArrayList<Integer> t = new ArrayList<Integer>();
         for (int i : seq) {
             t.add(i);
         }
-        for (int i = 0; i < 29; i++) {
-            System.out.println(t);
+        for (int i = 0; i < 100000000; i++) {
+            // System.out.println(t);
             NextPermutation.nextPermutation(t);
         }
     }
