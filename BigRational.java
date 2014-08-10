@@ -48,7 +48,6 @@ public class BigRational {
         return new BigRational(numerator, denominator);
     }
 
-
     // return a + b
     public BigRational plus(BigRational b) {
         BigRational a = this;
