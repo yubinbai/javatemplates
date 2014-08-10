@@ -1,9 +1,3 @@
-package algorithm.string.karp_rabin;
-
-/**
- * Hello world!
- *
- */
 public class KarpRabin {
     static final long P = 1000000007;
     static long[] p; // p[i] = P^i % 2^64
@@ -38,14 +32,13 @@ public class KarpRabin {
 
         /* pre-compute p[] and a[] to make hh() work in O(1) time */
         p[0] = 1;
-        for (int i = 1; i <= m; i++)
+        for (int i = 1; i <= m; i++) {
             p[i] = p[i - 1] * P;
-        for (int i = 1; i <= m; i++)
             a[i] = a[i - 1] * P + t[i - 1];
+        }
 
         long H = 0;
-        for (int i = 1; i <= n; i++)
-            H = P * H + s[i - 1];
+        for (int i = 1; i <= n; i++) H = P * H + s[i - 1];
 
         for (int i = 0; i + n <= m; i++) {
             if (hh(i, i + n - 1) == H) {
@@ -60,6 +53,15 @@ public class KarpRabin {
         for (int i = 0; i < this.foundCounter; i++)
             s += String.format("found at:  %d \n", locations[i]);
         return s;
+    }
+
+    public static void main(String[] args) {
+        char[] s = "test".toCharArray();
+        char[] t = "testestest hello there test!".toCharArray();
+        KarpRabin kr = new KarpRabin(s);
+        kr.searchIn(t);
+        String found = kr.printResult();
+        System.out.println(found);
     }
 
 }
