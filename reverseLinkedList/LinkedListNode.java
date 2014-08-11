@@ -1,4 +1,4 @@
-package interview.questions.reverseLinkedList;
+package reverseLinkedList;
 
 public class LinkedListNode<T> {
 	T payload;

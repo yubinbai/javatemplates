@@ -41,15 +41,17 @@ public class BSTree<Key extends Comparable<? super Key>> {
     public Node<Key> treeMin() {
         // algo on page 45
         Node<Key> currP = getRoot();
-        while (currP.getLeftChild() != null)
+        while (currP.getLeftChild() != null) {
             currP = currP.getLeftChild();
+        }
         return currP;
     }
 
     private Node<Key> treeMinimum(Node<Key> e) {
         Node<Key> currP = e;
-        while (currP.getLeftChild() != null)
+        while (currP.getLeftChild() != null) {
             currP = currP.getLeftChild();
+        }
         return currP;
     }
 
@@ -61,10 +63,8 @@ public class BSTree<Key extends Comparable<? super Key>> {
         Node<Key> searchPos = this.getRoot();
         while (searchPos != null) {
             insertPos = searchPos;
-            if (keyValue.compareTo(searchPos.getValue()) < 0)
-                searchPos = searchPos.getLeftChild();
-            else
-                searchPos = searchPos.getRightChild();
+            searchPos = (keyValue.compareTo(searchPos.getValue()) < 0) ? 
+                searchPos.getLeftChild() : searchPos.getRightChild();
         }
         Node<Key> newNode = new Node<Key>(keyValue);
         newNode.setParent(insertPos);
@@ -127,8 +127,7 @@ public class BSTree<Key extends Comparable<? super Key>> {
         } else {
             source.getParent().setRightChild(target);
         }
-        if (target != null)
-            target.setParent(source.getParent());
+        if (target != null) target.setParent(source.getParent());
     }
 
     /**

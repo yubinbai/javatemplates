@@ -1,4 +1,4 @@
-package algorithm.clrs.backpack.integer;
+package backpackInteger;
 
 /**
  * Solver for the 0-1 backpack problem

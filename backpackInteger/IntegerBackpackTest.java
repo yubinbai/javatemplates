@@ -1,4 +1,4 @@
-package algorithm.clrs.backpack.integer;
+package backpackInteger;
 
 import java.util.Random;
 
