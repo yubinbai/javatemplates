@@ -1,5 +1,5 @@
 Pancake sorting
----------------
+===============
 
 You probably recall from 15-251 how to sort by prefix reversal
 (also known as pancake flipping).
@@ -9,37 +9,37 @@ of numbers 1...n (a list of numbers) we want to sort them by reversing
 
 prefixes.  For example, say we start with:
 
-5 1 4 2 3
+    5 1 4 2 3
 
 Reverse the whole thing and get:
 
-3 2 4 1 5
+    3 2 4 1 5
 
 Now put 4 at the front:
 
-4 2 3 1 5
+    4 2 3 1 5
 
 Now put 4 in place:
 
-1 3 2 4 5
+    1 3 2 4 5
 
 Now put 3 in front:
 
-3 1 2 4 5
+    3 1 2 4 5
 
 Not put 3 in place:
 
-2 1 3 4 5
+    2 1 3 4 5
 
 finish up:
 
-1 2 3 4 5
+    1 2 3 4 5
 
 Clearly this algorithm takes at most 2(n-1) flips.  But suppose
 you wanted to print out the set of prefix lengths that are flipped
 in order to sort the permutation.  So in this case we would output
 
-5 3 4 2 3 2
+    5 3 4 2 3 2
 
 The naive algorithm to compute this will take time O(n^2), because it
 has to maintain, say, an array of all the elements, and each prefix
