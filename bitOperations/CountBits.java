@@ -1,4 +1,4 @@
-package javaLanguage.bit.operations;
+package bitOperations;
 
 public interface CountBits {
 
