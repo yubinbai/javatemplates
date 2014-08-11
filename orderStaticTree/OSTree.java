@@ -1,12 +1,5 @@
-/**
- * 
- */
-package algorithm.ostree.ostree;
+package orderStaticTree;
 
-/**
- * @author Administrator
- * 
- */
 public class OSTree<Key extends Comparable> extends BSTree {
 
 	@Override

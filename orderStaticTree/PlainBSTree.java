@@ -1,4 +1,4 @@
-package algorithm.ostree.ostree;
+package orderStaticTree;
 
 import java.util.LinkedList;
 

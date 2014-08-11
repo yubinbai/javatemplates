@@ -1,4 +1,4 @@
-package algorithm.ostree.ostree;
+package orderStaticTree;
 
 import java.util.LinkedList;
 
@@ -7,16 +7,6 @@ import java.util.LinkedList;
  * 
  */
 
-/**
- * @author Administrator
- *
- * @param <Key>
- */
-/**
- * @author Administrator
- *
- * @param <Key>
- */
 abstract class BSTree<Key extends Comparable> {
 
 	protected Node<Key> root;
