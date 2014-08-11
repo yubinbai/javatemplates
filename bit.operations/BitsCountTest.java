@@ -1,6 +1,5 @@
-package javaLanguage.bit.operations;
+package bit.operations;
 
-import javaLanguage.bit.operations.NaiveCounter;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
