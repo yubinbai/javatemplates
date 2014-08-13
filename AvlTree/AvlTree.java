@@ -1,13 +1,6 @@
-package algorithms.AvlTree;
+package AvlTree;
 
 import java.util.LinkedList;
-
-import algorithms.AvlTree.Node;
-
-/**
- * Hello world!
- * 
- */
 
 public class AvlTree<Key extends Comparable<? super Key>> {
 

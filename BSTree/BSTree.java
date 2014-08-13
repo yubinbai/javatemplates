@@ -5,6 +5,8 @@ import java.util.LinkedList;
 /**
  * Implement the binary search tree
  *
+ * TreeMap is implemented in Java, as the red-black tree
+ *
  */
 
 public class BSTree<Key extends Comparable<? super Key>> {

@@ -1,5 +1,5 @@
 Optimal binary search tree problem: 
-
+===============
 Formally, we are given a sequence K <k1; k2; ... ; kn> of n distinct keys in sorted order 
 (so that k1 < k2 < ... < kn), and we wish to build a binary search tree from these keys.
 For each key ki , we have a probability pi that a search will be for ki. 
