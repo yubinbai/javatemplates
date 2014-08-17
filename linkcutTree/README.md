@@ -3,10 +3,8 @@ Fall 2012
 D. Sleator
 
 Link/Cut trees    October 9, 2012
-
+=========================================================================
 Full paper at: http://www.cs.cmu.edu/~sleator/papers/self-adjusting.pdf
-
--------------------------------------------------------------------------
 
 The goal of link/cut trees is to represent a forest of trees under these
 kinds of operations:
