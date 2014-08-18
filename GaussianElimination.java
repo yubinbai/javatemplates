@@ -61,7 +61,8 @@ public class GaussianElimination {
     // sample client
     public static void main(String[] args) {
         int N = 3;
-        double[][] A = { { 0, 1,  1 },
+        double[][] A = { 
+            { 0, 1,  1 },
             { 2, 4, -2 },
             { 0, 3, 15 }
         };
