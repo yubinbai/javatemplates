@@ -1,4 +1,10 @@
+/**
+ * Euler's phi function, the number of times 
+ *     a number smaller than x will be relative prime with x
+ */
+
 import java.util.*;
+
 class EulerPhi {
     public static long eulerPhi(long n) {
         if (n == 0) return 0;
