@@ -57,9 +57,9 @@ public class NextPermutation {
     }
 
     // get the next permutation in place
-    public static void nextPermutation(int[] num) {
+    public static int nextPermutation(int[] num) {
         int size = num.length;
-        if (size <= 1) return;
+        if (size <= 1) return 0;
 
         // 1.find the first acending order pair from the bottom
         int low = size - 2;
@@ -77,7 +77,7 @@ public class NextPermutation {
         // reached end of permutation
         if (low < 0) {
             Arrays.sort(num);
-            return;
+            return 0;
         }
 
         // 2.swap num[lo] with num[hi] if lo >= 0
@@ -97,7 +97,7 @@ public class NextPermutation {
             high--;
         }
 
-        return;
+        return 1;
     }
     public static void main(String[] args) {
         int[] seq = {1, 2, 2, 3, 4, 5, 6};
