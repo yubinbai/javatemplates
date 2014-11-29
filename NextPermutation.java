@@ -56,12 +56,16 @@ public class NextPermutation {
         return;
     }
 
-    // get the next permutation in place
+    /**
+     * get the next permutation in place
+     * @param  num  array of integer
+     * @return int  zero if reached end of perm, one if in middle
+     */
     public static int nextPermutation(int[] num) {
         int size = num.length;
         if (size <= 1) return 0;
 
-        // 1.find the first acending order pair from the bottom
+        // 1.find the first ascending order pair from the bottom
         int low = size - 2;
         int high = size - 1;
         while (num[low] >= num[high]) {
