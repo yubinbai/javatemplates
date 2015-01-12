@@ -13,12 +13,10 @@ public class MinHeap<Key extends Comparable<? super Key>> {
 	}
 
 	public Collection<Key> getCollection() {
-		//
 		return heapData;
 	}
 
 	public Key peekMin() {
-		//
 		if (heapSize > 0)
 			return heapData.get(0);
 		else

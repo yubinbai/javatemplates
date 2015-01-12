@@ -13,7 +13,6 @@ public class MaxKelements<Key extends Comparable<? super Key>> {
 	int length, heapSize;
 
 	public MaxKelements(int arraySize, Key[] data) {
-		//
 		this.data = data;
 		this.length = arraySize;
 		bigK = new MinHeap<Key>();
