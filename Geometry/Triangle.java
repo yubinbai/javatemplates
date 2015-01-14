@@ -34,12 +34,27 @@ public class Triangle {
         Arrays.sort(d);
         return d[0] + d[1] > d[2];
     }
+    // public boolean hasInside(Point p) {
+    //     boolean b1, b2, b3;
+    //     b1 = Points.crossProduct(p, a, b) < 0;
+    //     b2 = Points.crossProduct(p, b, c) < 0;
+    //     b3 = Points.crossProduct(p, c, a) < 0;
+    //     return (b1 == b2) && (b2 == b3);
+    // }
+    /**
+     * Determine if a point is inside triangle
+     * Using barycentric coordinate method
+     * https://en.wikipedia.org/wiki/Barycentric_coordinate_system
+     *
+     * @param  p [description]
+     * @return   [description]
+     */
     public boolean hasInside(Point p) {
-        boolean b1, b2, b3;
-        b1 = Points.crossProduct(p, a, b) < 0;
-        b2 = Points.crossProduct(p, b, c) < 0;
-        b3 = Points.crossProduct(p, c, a) < 0;
-        return (b1 == b2) && (b2 == b3);
+        double det = (b.y - c.y) * (a.x - c.x) + (c.x - b.x) * (a.y - c.y);
+        double lambda1 = ((b.y - c.y) * (p.x - c.x) + (c.x - b.x) * (p.y - c.y)) / det;
+        double lambda2 = ((c.y - a.y) * (p.x - c.x) + (a.x - c.x) * (p.y - c.y)) / det;
+        double lambda3 = 1 - lambda1 - lambda2;
+        return (lambda1 >= 0) && (lambda2 >= 0) && (lambda3 >= 0);
     }
     public static void main(String[] args) {
         Point a = new Point(0, 1);
