@@ -30,26 +30,31 @@ public class OverlappingInterval {
             if (pt.isStart) {
                 currOpen.add(pt.ordinal);
             } else {
-                for (int ord1 : currOpen) {
-                    if (ord1 != pt.ordinal) {
-                        int[] int1 = intervals[ord1];
-                        int[] int2 = intervals[pt.ordinal];
-                        ArrayList<Integer> overlap = new ArrayList<Integer>();
-                        overlap.add(int1[0]);
-                        overlap.add(int1[1]);
-                        overlap.add(int2[0]);
-                        overlap.add(int2[1]);
-                        ret.add(overlap);
-                    }
-                }
                 currOpen.remove(pt.ordinal);
+                for (int ord1 : currOpen) {
+                    int[] int1 = intervals[ord1];
+                    int[] int2 = intervals[pt.ordinal];
+                    ArrayList<Integer> overlap = new ArrayList<Integer>();
+                    overlap.add(int1[0]);
+                    overlap.add(int1[1]);
+                    overlap.add(int2[0]);
+                    overlap.add(int2[1]);
+                    ret.add(overlap);
+                }
             }
         }
         return ret;
     }
     public static void main(String[] args) {
         OverlappingInterval o = new OverlappingInterval();
-        int[][] arr = new int[][] {{1, 3}, {12, 14}, {2, 4}, {13, 15}, {1, 10}};
+        int[][] arr;
+        System.out.println("Test1");
+        arr = new int[][] {{1, 3}, {12, 14}, {2, 4}, {13, 15}, {1, 10}};
+        for (ArrayList<Integer> a : o.findall(arr)) {
+            System.out.println(a);
+        }
+        System.out.println("Test2");
+        arr = new int[][] {{1, 3}, {12, 14}, {2, 4}, {3, 15}, {1, 10}};
         for (ArrayList<Integer> a : o.findall(arr)) {
             System.out.println(a);
         }
