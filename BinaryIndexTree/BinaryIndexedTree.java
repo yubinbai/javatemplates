@@ -7,24 +7,41 @@
 
 import java.util.Random;
 
-public class FenwickTree {
+public class BinaryIndexedTree {
     int size;
     int[] tree;
-    public FenwickTree(int size) {
+    public BinaryIndexedTree(int size) {
         this.size = size;
-        this.tree = new int[size];
+        this.tree = new int[size + 1];
     }
 
     /**
-     * increase the i-th element by delta
+     * add the i-th element by delta (zero-based)
      * @param i
      * @param delta
      */
-    public void increase(int i, int delta) {
-        while (i < size) {
+    public void add(int i, int delta) {
+        i++; // zero-based to one-based
+        while (i <= size) {
             tree[i] += delta;
-            i |= i + 1;
+            i += i & -i;
         }
+    }
+
+    /**
+     * get sum between [0..i] 
+     * i is zero-based
+     * @param i
+     * @return
+     */
+    private int sum(int i) {
+        i++; // zero-based to one-based
+        int currSum = 0;
+        while (i > 0) {
+            currSum += tree[i];
+            i -= i & -i;
+        }
+        return currSum;
     }
 
     /**
@@ -35,38 +52,23 @@ public class FenwickTree {
      */
     public int getSum(int left, int right) {
         if (left == 0) {
-            return _sum(right);
+            return sum(right);
         } else {
-            return _sum(right) - _sum(left - 1);
+            return sum(right) - sum(left - 1);
         }
-    }
-
-    /**
-     * get sum between [0..index]
-     * @param index
-     * @return
-     */
-    private int _sum(int index) {
-        int currSum = 0;
-        while (index >= 0) {
-            currSum += tree[index];
-            index &= index + 1;
-            index -= 1;
-        }
-        return currSum;
     }
 
     public static void main(String[] args) {
-        int size = 100;
+        int size = 10;
         int[] raw = new int[size];
         Random r = new Random();
         for (int i = 0; i < size; i++) {
             raw[i] = r.nextInt(20);
         }
-        FenwickTree t = new FenwickTree(size);
+        BinaryIndexedTree t = new BinaryIndexedTree(size);
         for (int i = 0; i < size; i++) {
             if (raw[i] > 0) {
-                t.increase(i, raw[i]);
+                t.add(i, raw[i]);
             }
         }
 
