@@ -1,10 +1,3 @@
-// In this implementation, the tree is represented by a list
-// Elements are numbered by 0, 1, ..., n-1.
-// tree[i] is sum of elements with indexes i&(i+1)..i, inclusive.
-// (Note: this is a bit different from what is proposed in Fenwick's article.
-// To see why it makes sense, think about the trailing 1's in binary
-// representation of indexes.)
-
 import java.util.Random;
 
 public class BinaryIndexedTree {
@@ -29,7 +22,7 @@ public class BinaryIndexedTree {
     }
 
     /**
-     * get sum between [0..i] 
+     * get sum between [0..i]
      * i is zero-based
      * @param i
      * @return
